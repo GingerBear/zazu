@@ -1,3 +1,15 @@
+# Feature Request: 
+When working on a react native project, I want to know what's available function of ListView component. I hit `cmd+space` and type `ListView`, and preview https://facebook.github.io/react-native/docs/listview.html, hit `esc` to close.
+
+related requirements: 
+- the most common usage doesn't require using mouse
+- fuzzy search
+- set interested api, so I can say I am using react native 0.43, and want to see stuffed related to react native 0.43 shows up on top of the search result
+- easy way to add more api documentation, basically just need to save name, content for search, the show content can just be a link. 
+
+
+
+
 ## Zazu
 
 [![Join the chat at https://gitter.im/tinytacoteam/zazu](https://badges.gitter.im/tinytacoteam/zazu.svg)](https://gitter.im/tinytacoteam/zazu?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
