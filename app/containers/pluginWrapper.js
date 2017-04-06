@@ -136,7 +136,6 @@ const PluginWrapper = React.createClass({
   },
 
   handleQueryChange (query) {
-    let first = true
     const interaction = track.interaction()
     interaction.setName('search')
     interaction.setAttribute('queryLength', query.length)
@@ -153,22 +152,19 @@ const PluginWrapper = React.createClass({
 
     promises.map((promise) => {
       return promise.then((results = []) => {
-        if (query === this.state.query) {
-          if (first) {
-            first = false
-            this.setState({
-              results,
-            })
-          } else {
-            this.setState({
-              results: [...this.state.results].concat(results),
-            })
-          }
+        if (query === this.state.query && results.length > 0) {
+          const resultsPluginName = results[0].pluginName
+          this.setState({
+            results: this.state.results.filter((result) => {
+              return result.pluginName !== resultsPluginName
+            }).concat(results),
+          })
         }
       })
     })
 
     Promise.all(promises).then(() => {
+      // remove all other plugin results
       interaction.save()
     }).catch(() => {
       interaction.save()
